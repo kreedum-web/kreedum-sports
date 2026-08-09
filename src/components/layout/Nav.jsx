@@ -344,6 +344,7 @@ export default function Nav() {
             left-4
             right-4
             top-full
+            pointer-events-none
             transition-all
             duration-300
             ease-out
