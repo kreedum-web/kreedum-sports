@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../config/theme";
 import { NAV_LINKS } from "../../config/navigation";
@@ -14,11 +14,46 @@ import logo from "../../assets/logo.png";
 export default function Nav() {
   const scrolled = useScrolled();
   const [open, setOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
 
   const scrollTo = (id) => {
     setOpen(false);
     scrollToId(id);
   };
+
+
+  useEffect(() => {
+  if (!open) return;
+
+  const handleOutsideTap = (event) => {
+    // Only apply this behavior on mobile
+    if (window.innerWidth >= 768) return;
+
+    const menu = mobileMenuRef.current;
+
+    if (!menu) return;
+
+    // If the tap is outside the mobile navbar/menu area,
+    // close the dropdown.
+    if (!menu.contains(event.target)) {
+      setOpen(false);
+    }
+  };
+
+  document.addEventListener(
+    "pointerdown",
+    handleOutsideTap
+  );
+
+  return () => {
+    document.removeEventListener(
+      "pointerdown",
+      handleOutsideTap
+    );
+  };
+}, [open]);
+
+
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -35,7 +70,8 @@ export default function Nav() {
       ====================================================== */}
 
       <div
-        className="transition-all duration-300 ease-out"
+        ref={mobileMenuRef}
+  className="transition-all duration-300 ease-out"
         style={{
           /* Desktop floating behavior */
           ...(scrolled
@@ -245,7 +281,8 @@ export default function Nav() {
               kr-focus
             "
             onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
+            // aria-label="Toggle menu"
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
             <span
@@ -263,9 +300,10 @@ export default function Nav() {
                   ? COLORS.navy
                   : COLORS.white,
 
-                transform: open
-                  ? "rotate(45deg)"
-                  : "translateY(-4px)",
+                // transform: open
+                //   ? "rotate(45deg)"
+                //   : "translateY(-4px)",
+                transform: "translateY(-4px)",
               }}
             />
 
@@ -284,9 +322,10 @@ export default function Nav() {
                   ? COLORS.navy
                   : COLORS.white,
 
-                transform: open
-                  ? "rotate(-45deg)"
-                  : "translateY(4px)",
+                // transform: open
+                //   ? "rotate(-45deg)"
+                //   : "translateY(4px)",
+                transform: "translateY(4px)",
               }}
             />
           </button>
