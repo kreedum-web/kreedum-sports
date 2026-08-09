@@ -13,17 +13,17 @@ export default function Hero() {
       style={{ backgroundColor: COLORS.navy }}
     >
       <div
-        className="absolute inset-0 opacity-90"
+        className="absolute inset-0 opacity-90 pointer-events-none"
         style={{
           background: `linear-gradient(120deg, ${COLORS.navy} 35%, ${COLORS.blueDark} 100%)`,
         }}
       />
       <div
-        className="absolute -right-24 -top-24 w-[520px] h-[520px] rounded-full opacity-20"
+        className="absolute -right-24 -top-24 w-[520px] h-[520px] rounded-full opacity-20 pointer-events-none"
         style={{ background: COLORS.blue, filter: "blur(10px)" }}
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 pt-32 pb-28 md:pt-44 md:pb-40 grid md:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-28 md:pt-44 md:pb-40 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <div
             className="font-mono text-xs tracking-widest uppercase mb-5 inline-block px-3 py-1 rounded-full"

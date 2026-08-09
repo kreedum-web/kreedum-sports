@@ -123,19 +123,21 @@ export default function Gallery() {
         {/* Gallery */}
         <div className="relative">
 
-          {/* Desktop previous arrow */}
+          {/* Previous arrow (visible on mobile and desktop) */}
           <button
             onClick={handlePrev}
             aria-label="Previous gallery item"
             className="
-              hidden md:flex
+              flex
               absolute
               left-3
               top-1/2
               -translate-y-1/2
               z-20
-              w-11
-              h-11
+              w-9
+              h-9
+              md:w-11
+              md:h-11
               rounded-full
               items-center
               justify-center
@@ -153,19 +155,21 @@ export default function Gallery() {
             <ChevronLeftIcon />
           </button>
 
-          {/* Desktop next arrow */}
+          {/* Next arrow (visible on mobile and desktop) */}
           <button
             onClick={handleNext}
             aria-label="Next gallery item"
             className="
-              hidden md:flex
+              flex
               absolute
               right-3
               top-1/2
               -translate-y-1/2
               z-20
-              w-11
-              h-11
+              w-9
+              h-9
+              md:w-11
+              md:h-11
               rounded-full
               items-center
               justify-center

@@ -18,7 +18,8 @@ export default function GlobalStyle() {
 }
 
 @media (max-width: 768px) {
-  .diag-top {
+  .diag-top,
+  .diag-bottom {
     clip-path: none;
   }
 }
