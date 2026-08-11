@@ -94,6 +94,7 @@ exists
     └── pages/
         ├── HomePage.jsx            # assembles Nav + all sections + Footer
         └── QuotePage.jsx           # the /quote gym-equipment quote form
+        └── LinksPage.jsx           # the /Linkpage our linktreepage
 ```
 
 ### Why this layout

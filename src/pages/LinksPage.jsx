@@ -1,7 +1,12 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
 import { COLORS } from "../config/theme";
-
+import { SOCIAL_LINKS } from "../data/socialLinks";
+import { NAV_LINKS } from "../config/navigation";
+import {
+  PHONE_NUMBER_TEL,
+  WHATSAPP_NUMBER,
+} from "../config/contact";
 /* ============================================================
    LINKS DATA
    ============================================================ */
@@ -13,31 +18,32 @@ const mainLinks = [
     description: "Explore Kreedum Sports",
     href: "/",
   },
+    {
+    id: "locations",
+    title: "Our Locations",
+    description: "Find Kreedum stores and locations",
+    href: "/#locations",
+  },
+    {
+    id: "phone",
+    title: "Call Us",
+    description: "+91 75700 02458",
+    href: `tel:+${PHONE_NUMBER_TEL}`,
+  },
   {
     id: "quote",
-    title: "Get a Quote",
+    title: "Get a Gym Quote",
     description: "Gym & fitness equipment enquiries",
     href: "/quote",
     featured: true,
   },
   {
-    id: "sports",
-    title: "Sports Equipment",
-    description: "Equipment for professional & recreational sports",
-    href: "#",
-  },
-  {
-    id: "fitness",
-    title: "Fitness Equipment",
-    description: "Build your gym with professional equipment",
-    href: "#",
-  },
-  {
     id: "infrastructure",
     title: "Sports Infrastructure",
     description: "Complete sports infrastructure solutions",
-    href: "#",
+    href: "/#infrastructure",
   },
+
 ];
 
 /*
@@ -46,25 +52,25 @@ const mainLinks = [
 const socialLinks = [
   {
     id: "instagram",
-    href: "#",
+    href: "https://www.instagram.com/kreedum_official/?hl=en",
     icon: "instagram",
     label: "Instagram",
   },
   {
     id: "linkedin",
-    href: "#",
+    href: "https://www.linkedin.com/company/kreedum-international-pvt-ltd/",
     icon: "linkedin",
     label: "LinkedIn",
   },
   {
     id: "facebook",
-    href: "#",
+    href: "https://facebook.com/kreedumsports",
     icon: "facebook",
     label: "Facebook",
   },
   {
     id: "youtube",
-    href: "#",
+    href: "https://youtube.com/@kreedum?si=ocFdda_a6vS2ENFM",
     icon: "youtube",
     label: "YouTube",
   },
@@ -79,7 +85,7 @@ const socialLinks = [
 /*
  * Replace with actual WhatsApp URL.
  */
-const WHATSAPP_URL = "#";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 
 /* ============================================================
