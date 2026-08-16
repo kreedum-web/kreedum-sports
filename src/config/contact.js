@@ -6,4 +6,4 @@ export const PHONE_NUMBER_DISPLAY = "+91 7570002458";
 export const PHONE_NUMBER_TEL = "917570002458";
 
 // Used to build "wa.me" links from the Contact and Quote forms.
-export const WHATSAPP_NUMBER = "917080407862";
+export const WHATSAPP_NUMBER = "917570002458";

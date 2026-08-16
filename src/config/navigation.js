@@ -4,5 +4,5 @@ export const NAV_LINKS = [
   { id: "infrastructure", label: "Infrastructure" },
   { id: "gallery", label: "Gallery" },
   { id: "locations", label: "Locations" },
-  { id: "contact", label: "Contact" },
+  // { id: "contact", label: "Contact" },
 ];

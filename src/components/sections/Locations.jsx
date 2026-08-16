@@ -4,13 +4,10 @@ import { PinIcon } from "../common/Icons";
 
 
 export default function Locations() {
-    const firstStoreAddress = STORES[0].address;
-  const storesWithDirections = STORES.map((s) => ({
-    ...s,
-    // Second store's address is still unconfirmed, so point both buttons
-    // to the first (confirmed) store's location for now.
-    directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(firstStoreAddress)}`,
-  }));
+   const storesWithDirections = STORES.map((s) => ({
+  ...s,
+  directionsUrl: `https://www.google.com/maps/dir/?api=1&destination=${s.latitude},${s.longitude}`,
+}));
   return (
     <section id="locations" className="pt-16 pb-10 md:pt-24 md:pb-16" style={{ backgroundColor: COLORS.paper }}>
       <div className="max-w-6xl mx-auto px-6">

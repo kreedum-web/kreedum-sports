@@ -228,7 +228,7 @@ ${form.message ? `\nMessage:\n${form.message}` : ""}`;
                     title="Enter a valid 10-digit Indian mobile number"
                     className="w-full px-4 py-3 rounded-lg font-body text-sm kr-focus"
                     style={inputStyle}
-                    placeholder="9876543210"
+                    placeholder="Enter You Phone No"
                   />
                   {errors.phone && <p className="mt-2 text-sm text-red-600">{errors.phone}</p>}
                 </div>

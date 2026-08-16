@@ -236,7 +236,7 @@ export default function Nav() {
                   : COLORS.white,
               }}
             >
-              Get a Quote
+              Get a Gym Quote
             </Link>
 
             {/* Get in Touch */}
@@ -528,7 +528,7 @@ export default function Nav() {
                     : "0ms",
                 }}
               >
-                <span>Get a Quote</span>
+                <span>Get a Gym Quote</span>
 
                 <span className="text-lg leading-none">
                   →
