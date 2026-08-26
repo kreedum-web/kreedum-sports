@@ -14,3 +14,20 @@ export const COLORS = {
   slateLight: "#8A93A6",
   white: "#FFFFFF",
 };
+
+/**
+ * Kreedum Construction brand color tokens.
+ * Charcoal + warm ivory + concrete + orange accent.
+ * Used only by src/components/construction/* and src/pages/construction/* —
+ * the Sports site keeps using COLORS above, untouched.
+ */
+export const CONSTRUCTION_COLORS = {
+  ink: "#171717",
+  black: "#0D0D0D",
+  paper: "#F5F1E8",
+  concrete: "#E5DED1",
+  orange: "#E86F00",
+  orangeDark: "#B95600",
+  steel: "#77736D",
+  white: "#FFFFFF",
+};
