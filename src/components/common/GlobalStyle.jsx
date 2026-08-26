@@ -36,8 +36,43 @@ export default function GlobalStyle() {
         .kr-scroll-hide::-webkit-scrollbar {
         display: none;
       }
+      .kr-whatsapp-btn {
+        position: fixed;
+        right: max(20px, env(safe-area-inset-right));
+        bottom: max(20px, env(safe-area-inset-bottom));
+        z-index: 70;
+        width: 56px;
+        height: 56px;
+        border-radius: 999px;
+        border: none;
+        background: #25D366;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        animation: kr-whatsapp-pulse 2.4s ease-in-out infinite;
+      }
+      .kr-whatsapp-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 14px 36px rgba(0,0,0,0.42);
+      }
+      @keyframes kr-whatsapp-pulse {
+        0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 0 0 rgba(37,211,102,0.45); }
+        50% { box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 0 10px rgba(37,211,102,0); }
+      }
+      @media (max-width: 640px) {
+        .kr-whatsapp-btn {
+          right: max(14px, env(safe-area-inset-right));
+          bottom: max(14px, env(safe-area-inset-bottom));
+          width: 50px;
+          height: 50px;
+        }
+      }
       @media (prefers-reduced-motion: reduce) {
         * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+        .kr-whatsapp-btn { animation: none; }
       }
     `}</style>
   );

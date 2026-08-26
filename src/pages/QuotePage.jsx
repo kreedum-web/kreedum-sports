@@ -12,6 +12,7 @@ import {
 import { openWhatsApp, isValidIndianMobile } from "../utils/whatsapp";
 import { PhoneIcon, CheckCircleIcon } from "../components/common/Icons";
 import Footer from "../components/layout/Footer";
+import WhatsAppButton from "../components/common/WhatsAppButton";
 import logo from "../assets/logo.png";
 import { getCurrentDateAndTime } from "../components/common/SubmitedAt";
 
@@ -380,6 +381,7 @@ ${form.message ? `\nMessage:\n${form.message}` : ""}`;
       </section>
 
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

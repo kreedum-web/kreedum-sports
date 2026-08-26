@@ -12,6 +12,12 @@ export default function Infrastructure() {
 
   const total = INFRA_PHOTOS.length;
 
+  const SPORTS_INFRA_URL = "/construction/sports-infrastructure";
+
+  const openSportsInfra = () => {
+    window.open(SPORTS_INFRA_URL, "_blank", "noopener,noreferrer");
+  };
+
   /* =========================================
      DESKTOP NAVIGATION
      ========================================= */
@@ -83,6 +89,7 @@ export default function Infrastructure() {
   return (
     <section
       id="infrastructure"
+      onClick={openSportsInfra}
       className="
         relative
         w-full
@@ -90,6 +97,7 @@ export default function Infrastructure() {
         py-24
         md:py-32
         overflow-hidden
+        cursor-pointer
       "
       style={{
         backgroundColor: COLORS.navy,
@@ -200,7 +208,10 @@ export default function Infrastructure() {
                 {/* Desktop Previous */}
 
                 <button
-                  onClick={prev}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prev();
+                  }}
                   aria-label="Previous infrastructure photo"
                   className="
                     absolute
@@ -234,7 +245,10 @@ export default function Infrastructure() {
                 {/* Desktop Next */}
 
                 <button
-                  onClick={next}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    next();
+                  }}
                   aria-label="Next infrastructure photo"
                   className="
                     absolute
@@ -280,7 +294,10 @@ export default function Infrastructure() {
                 {INFRA_PHOTOS.map((p, i) => (
                   <button
                     key={p.alt}
-                    onClick={() => setIndex(i)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIndex(i);
+                    }}
                     aria-label={`Go to photo ${
                       i + 1
                     }`}
@@ -383,9 +400,10 @@ export default function Infrastructure() {
                 {INFRA_PHOTOS.map((p, i) => (
                   <button
                     key={p.alt}
-                    onClick={() =>
-                      goToMobileSlide(i)
-                    }
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      goToMobileSlide(i);
+                    }}
                     aria-label={`Go to photo ${
                       i + 1
                     }`}
@@ -539,6 +557,38 @@ export default function Infrastructure() {
                 </li>
               ))}
             </ul>
+
+            {/* CTA — links out to the Construction site's dedicated
+                Sports Infrastructure vertical page, in a new tab. */}
+
+            <a
+              href={SPORTS_INFRA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="
+                inline-flex
+                items-center
+                gap-2
+                mt-8
+                font-body
+                text-sm
+                font-semibold
+                px-5
+                py-2.5
+                rounded-full
+                kr-focus
+                transition-transform
+                hover:scale-105
+              "
+              style={{
+                backgroundColor: COLORS.blue,
+                color: COLORS.white,
+              }}
+            >
+              Explore Sports Infrastructure Projects
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </div>

@@ -180,6 +180,26 @@ export default function Nav() {
               </button>
             ))}
 
+            {/* Construction (separate vertical, routes away from this page) */}
+
+            <Link
+              to="/construction"
+              className="
+                font-body
+                text-sm
+                font-medium
+                kr-focus
+                transition-colors
+              "
+              style={{
+                color: scrolled
+                  ? COLORS.slate
+                  : "rgba(255,255,255,0.9)",
+              }}
+            >
+              Construction
+            </Link>
+
             {/* Phone */}
 
             <a
@@ -238,29 +258,6 @@ export default function Nav() {
             >
               Get a Gym Quote
             </Link>
-
-            {/* Get in Touch */}
-
-            <button
-              onClick={() => scrollTo("contact")}
-              className="
-                font-body
-                text-sm
-                font-semibold
-                px-5
-                py-2.5
-                rounded-full
-                kr-focus
-                transition-transform
-                hover:scale-105
-              "
-              style={{
-                backgroundColor: COLORS.blue,
-                color: COLORS.white,
-              }}
-            >
-              Get in Touch
-            </button>
           </nav>
 
           {/* =====================================================
@@ -419,6 +416,51 @@ export default function Nav() {
                   </span>
                 </button>
               ))}
+
+              {/* Construction (separate vertical, routes away from this page) */}
+
+              <Link
+                to="/construction"
+                onClick={() => setOpen(false)}
+                className="
+                  mobile-nav-item
+                  w-full
+                  flex
+                  items-center
+                  justify-between
+                  text-left
+                  px-4
+                  py-3.5
+                  rounded-2xl
+                  kr-focus
+                  transition-all
+                  duration-200
+                "
+                style={{
+                  color: COLORS.navy,
+
+                  opacity: open ? 1 : 0,
+
+                  transform: open
+                    ? "translateY(0)"
+                    : "translateY(-8px)",
+
+                  transitionDelay: open
+                    ? `${NAV_LINKS.length * 45}ms`
+                    : "0ms",
+                }}
+              >
+                <span className="mobile-nav-label">
+                  Construction
+                </span>
+
+                <span
+                  className="mobile-nav-arrow"
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+              </Link>
             </div>
 
             {/* ================= DIVIDER ================= */}
@@ -534,54 +576,6 @@ export default function Nav() {
                   →
                 </span>
               </Link>
-
-              {/* Get in Touch */}
-
-              <button
-                onClick={() =>
-                  scrollTo("contact")
-                }
-                className="
-                  mobile-contact-button
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-                  w-full
-                  mt-2
-                  px-5
-                  py-3.5
-                  rounded-2xl
-                  kr-focus
-                  transition-all
-                  duration-200
-                "
-                style={{
-                  color: COLORS.navy,
-
-                  backgroundColor:
-                    COLORS.paper,
-
-                  opacity: open ? 1 : 0,
-
-                  transform: open
-                    ? "translateY(0)"
-                    : "translateY(10px)",
-
-                  transition:
-                    "opacity 350ms ease, transform 350ms ease, background-color 200ms ease",
-
-                  transitionDelay: open
-                    ? "350ms"
-                    : "0ms",
-                }}
-              >
-                <span>Get in Touch</span>
-
-                <span className="text-lg leading-none">
-                  →
-                </span>
-              </button>
             </div>
           </div>
         </div>
