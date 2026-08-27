@@ -55,14 +55,6 @@ export default function ConstructionNavbar() {
 
         {/* Right controls */}
         <div className="flex items-center gap-2 md:gap-3 shrink-0">
-          <Link
-            to="/construction/contact"
-            className="kc-nav-pill kc-focus kc-plate"
-            style={{ backgroundColor: CONSTRUCTION_COLORS.orange, borderColor: "transparent", color: CONSTRUCTION_COLORS.white }}
-          >
-            Contact
-          </Link>
-
           <div className="relative">
             <button
               ref={menuBtnRef}

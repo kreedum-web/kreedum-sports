@@ -338,15 +338,23 @@ export default function ConstructionStyle() {
            no need to hide it here anymore. */
       }
 
-      /* Floating WhatsApp button — fixed bottom-right on every construction page.
+            /* Floating WhatsApp button — fixed bottom-right on every construction page.
          bottom/right use max() with env(safe-area-inset-*) so the button
          clears the home-indicator/gesture-bar area on iPhones instead of
-         sitting partially underneath it. */
-      .kc-whatsapp-btn {
+         sitting partially underneath it. The fixed positioning lives on the
+         wrapping row (kc-whatsapp-wrap) so the "Contact us" bubble can sit
+         next to the button as a normal flex sibling instead of needing its
+         own separately-computed fixed coordinates. */
+      .kc-whatsapp-wrap {
         position: fixed;
         right: max(20px, env(safe-area-inset-right));
         bottom: max(20px, env(safe-area-inset-bottom));
         z-index: 70;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .kc-whatsapp-btn {
         width: 56px;
         height: 56px;
         border-radius: 999px;
@@ -356,6 +364,7 @@ export default function ConstructionStyle() {
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        flex-shrink: 0;
         box-shadow: 0 10px 30px rgba(0,0,0,0.35);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         animation: kc-whatsapp-pulse 2.4s ease-in-out infinite;
@@ -368,12 +377,58 @@ export default function ConstructionStyle() {
         0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 0 0 rgba(37,211,102,0.45); }
         50% { box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 0 10px rgba(37,211,102,0); }
       }
+
+      /* "Contact us" speech bubble that appears next to the WhatsApp button */
+      .kc-whatsapp-bubble {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 10px 10px 16px;
+        border-radius: 999px;
+        background: ${CONSTRUCTION_COLORS.white};
+        color: ${CONSTRUCTION_COLORS.ink};
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.8rem;
+        font-weight: 500;
+        white-space: nowrap;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+        animation: kc-whatsapp-bubble-in 0.3s ease both;
+      }
+      .kc-whatsapp-bubble-close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 999px;
+        background: rgba(0,0,0,0.06);
+        font-size: 0.85rem;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .kc-whatsapp-bubble-close:hover {
+        background: rgba(0,0,0,0.12);
+      }
+      @keyframes kc-whatsapp-bubble-in {
+        from { opacity: 0; transform: translateY(6px) scale(0.96); }
+        to { opacity: 1; transform: none; }
+      }
+
       @media (max-width: 640px) {
-        .kc-whatsapp-btn {
+        .kc-whatsapp-wrap {
           right: max(14px, env(safe-area-inset-right));
           bottom: max(14px, env(safe-area-inset-bottom));
+          gap: 8px;
+        }
+        .kc-whatsapp-btn {
           width: 50px;
           height: 50px;
+        }
+        .kc-whatsapp-bubble {
+          font-size: 0.72rem;
+          padding: 8px 8px 8px 12px;
         }
       }
 
@@ -382,7 +437,7 @@ export default function ConstructionStyle() {
         .kc-reveal { opacity: 1; transform: none; transition: none; }
         .kc-intro, .kc-intro-word-in, .kc-hero-el,
         .kc-nav-pill, .kc-nav-dropdown, .kc-nav-preview-card,
-        .kc-menu-dropdown, .kc-whatsapp-btn {
+        .kc-menu-dropdown, .kc-whatsapp-btn, .kc-whatsapp-bubble {
           transition: none !important;
           animation: none !important;
         }
