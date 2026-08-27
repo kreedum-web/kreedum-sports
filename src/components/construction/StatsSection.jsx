@@ -1,11 +1,12 @@
 import { CONSTRUCTION_COLORS } from "../../config/theme";
 import Reveal from "./Reveal";
+import CountUp from "./CountUp";
 
 const STATS = [
-  { value: "150+", label: "Projects Delivered" },
-  { value: "12+", label: "Years Building" },
-  { value: "3", label: "Specialized Verticals" },
-  { value: "8", label: "States Served" },
+  { value: 150, suffix: "+", label: "Projects Delivered" },
+  { value: 12, suffix: "+", label: "Years Building" },
+  { value: 3, suffix: "", label: "Specialized Verticals" },
+  { value: 8, suffix: "", label: "States Served" },
 ];
 
 export default function StatsSection() {
@@ -16,9 +17,12 @@ export default function StatsSection() {
       >
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={i * 90} className="text-center px-2 md:px-6 first:pl-0">
-            <div className="font-mono font-medium text-3xl md:text-4xl" style={{ color: CONSTRUCTION_COLORS.ink }}>
-              {s.value}
-            </div>
+            <CountUp
+              end={s.value}
+              suffix={s.suffix}
+              className="font-mono font-medium text-3xl md:text-4xl block"
+              style={{ color: CONSTRUCTION_COLORS.ink }}
+            />
             <div className="kc-plate mt-1" style={{ color: CONSTRUCTION_COLORS.steel }}>
               {s.label}
             </div>

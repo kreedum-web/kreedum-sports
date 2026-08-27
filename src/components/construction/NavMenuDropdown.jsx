@@ -58,9 +58,6 @@ export default function NavMenuDropdown({ open, onClose, anchorRef }) {
 
       <div className="kc-menu-dropdown-divider" />
 
-      <MenuLink to="/construction/contact" onClick={onClose} tabIndex={open ? 0 : -1} accent>
-        Contact
-      </MenuLink>
       <MenuLink to="/" onClick={onClose} tabIndex={open ? 0 : -1} muted>
         ← Kreedum.com
       </MenuLink>

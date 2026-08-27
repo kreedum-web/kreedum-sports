@@ -37,10 +37,6 @@ export default function ConstructionHomePage() {
         video={HERO_VIDEO.src}
         videoMobile={HERO_VIDEO.mobileSrc}
         primaryCta={{ label: "Explore Our Work", to: "/construction/projects" }}
-        secondaryCta={{
-          label: "Message us on WhatsApp",
-          whatsappText: "Hi Kreedum Construction, I'd like to discuss a project.",
-        }}
       />
 
       <StatsSection />
