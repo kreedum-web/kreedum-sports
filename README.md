@@ -148,3 +148,4 @@ docs/STYLE_GUIDE.md documents every color and font currently used on the site â€
 - **Photos**: `src/data/photos.js` uses free Unsplash stock photos as
   placeholders. Swap in real photos of the stores/products by replacing the
   URLs there â€” no component needs to change.
+  Updated this just checking for repo transfer
