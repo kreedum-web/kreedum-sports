@@ -37,3 +37,16 @@ export const INFRA_PHOTOS = [
   { src: "https://images.unsplash.com/photo-1495143881214-47a7d7f2e7fa?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Institutional training ground" },
   { src: "https://images.unsplash.com/photo-1623874106686-5be2b325c8f1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGdvdmVybiUyMGd5bXxlbnwwfHwwfHx8MA%3D%3D", alt: "Ongoing ground maintenance work" },
 ];
+/*
+ * Background slideshow for the Hero on mobile. Add, remove or reorder
+ * entries here — the Hero picks them up automatically. Keep images
+ * reasonably small (w=800–1200) so the page stays fast on phones.
+ */
+export const HERO_SLIDES = [
+  { src: CATEGORY_PHOTOS[1].src, alt: "Gym with training equipment" },
+  { src: CATEGORY_PHOTOS[0].src, alt: "Cricket gear" },
+  { src: CATEGORY_PHOTOS[3].src, alt: "Football on the pitch" },
+  { src: PHOTOS.interior2, alt: "Dumbbells and fitness equipment" },
+  { src: CATEGORY_PHOTOS[4].src, alt: "Basketball court" },
+  { src: CATEGORY_PHOTOS[5].src, alt: "Badminton rackets and shuttlecocks" },
+];
