@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { COLORS } from "../../config/theme";
 import { PHONE_NUMBER_DISPLAY, PHONE_NUMBER_TEL } from "../../config/contact";
 import { NAV_LINKS } from "../../config/navigation";
+import { CONSTRUCTION_LINKS } from "../../config/externalLinks";
 import SocialLinks from "../common/SocialLinks";
 import logo from "../../assets/logo.png";
 
@@ -15,17 +16,17 @@ const DIVISIONS = [
   { label: "Sports Retail Store", to: "/", external: false },
   {
     label: "Sports Infrastructure",
-    to: "/construction/sports-infrastructure",
+    to: CONSTRUCTION_LINKS.sportsInfrastructure,
     external: true,
   },
   {
     label: "Civil Construction",
-    to: "/construction/civil-construction",
+    to: CONSTRUCTION_LINKS.civilConstruction,
     external: true,
   },
   {
     label: "Prefabricated Buildings",
-    to: "/construction/prefabricated-buildings",
+    to: CONSTRUCTION_LINKS.prefabricatedBuildings,
     external: true,
   },
 ];

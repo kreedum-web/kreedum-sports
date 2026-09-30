@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { COLORS } from "../../config/theme";
 import { INFRA_PHOTOS } from "../../data/photos";
+import { CONSTRUCTION_LINKS } from "../../config/externalLinks";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -12,7 +13,7 @@ export default function Infrastructure() {
 
   const total = INFRA_PHOTOS.length;
 
-  const SPORTS_INFRA_URL = "/construction/sports-infrastructure";
+  const SPORTS_INFRA_URL = CONSTRUCTION_LINKS.sportsInfrastructure;
 
   const openSportsInfra = () => {
     window.open(SPORTS_INFRA_URL, "_blank", "noopener,noreferrer");
@@ -558,8 +559,8 @@ export default function Infrastructure() {
               ))}
             </ul>
 
-            {/* CTA — links out to the Construction site's dedicated
-                Sports Infrastructure vertical page, in a new tab. */}
+            {/* CTA — links out to the Kreedum Construction site
+                (construction.kreedum.com) in a new tab. */}
 
             <a
               href={SPORTS_INFRA_URL}

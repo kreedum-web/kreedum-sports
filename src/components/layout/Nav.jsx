@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../config/theme";
 import { NAV_LINKS } from "../../config/navigation";
+import { CONSTRUCTION_LINKS } from "../../config/externalLinks";
 import {
   PHONE_NUMBER_DISPLAY,
   PHONE_NUMBER_TEL,
@@ -180,10 +181,12 @@ export default function Nav() {
               </button>
             ))}
 
-            {/* Construction (separate vertical, routes away from this page) */}
+            {/* Construction — separate site (construction.kreedum.com) */}
 
-            <Link
-              to="/construction"
+            <a
+              href={CONSTRUCTION_LINKS.home}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 font-body
                 text-sm
@@ -198,7 +201,7 @@ export default function Nav() {
               }}
             >
               Construction
-            </Link>
+            </a>
 
             {/* Phone */}
 
@@ -417,10 +420,12 @@ export default function Nav() {
                 </button>
               ))}
 
-              {/* Construction (separate vertical, routes away from this page) */}
+              {/* Construction — separate site (construction.kreedum.com) */}
 
-              <Link
-                to="/construction"
+              <a
+                href={CONSTRUCTION_LINKS.home}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="
                   mobile-nav-item
@@ -458,9 +463,9 @@ export default function Nav() {
                   className="mobile-nav-arrow"
                   aria-hidden="true"
                 >
-                  →
+                  ↗
                 </span>
-              </Link>
+              </a>
             </div>
 
             {/* ================= DIVIDER ================= */}

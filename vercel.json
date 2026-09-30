@@ -1,3 +1,7 @@
 {
+  "redirects": [
+    { "source": "/construction", "destination": "https://construction.kreedum.com", "permanent": true },
+    { "source": "/construction/:path*", "destination": "https://construction.kreedum.com/:path*", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
