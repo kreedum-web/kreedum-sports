@@ -1,13 +1,29 @@
-# KreedumSports
+# Kreedum Sports
 
-A landing page for Kreedum International Private Limited, built with React,
-Vite, Tailwind CSS, and React Router.
+The website for **Kreedum Sports**, a division of Kreedum International Private Limited,
+live at **[www.kreedum.com](https://www.kreedum.com)**.
 
-This is a restructured version of the original single-file prototype —
-same design and behavior, organized into a conventional, scalable folder
-layout so a backend can be added later without another rewrite.
+Built with React 18, Vite 5, Tailwind CSS 3 and React Router 6.
 
-## Setup
+> **Kreedum Construction has its own site:**
+> [construction.kreedum.com](https://construction.kreedum.com).
+> This repo contains no construction pages. The navbar, the Sports
+> Infrastructure section and the footer link out to that site, and old
+> `/construction/*` URLs are redirected there (see [Redirects](#redirects)).
+
+---
+
+## Pages
+
+| Route     | Page                   | File                       |
+|-----------|------------------------|----------------------------|
+| `/`       | Home / landing page    | `src/pages/HomePage.jsx`   |
+| `/quote`  | Gym equipment quote form | `src/pages/QuotePage.jsx` |
+| `/links`  | Link-in-bio page       | `src/pages/LinksPage.jsx`  |
+
+## Getting started
+
+Requires Node.js 18 or later.
 
 ```bash
 npm install
@@ -16,136 +32,153 @@ npm run dev
 
 Then open the URL Vite prints (usually http://localhost:5173).
 
-## Build for production
+| Command           | What it does                                  |
+|-------------------|-----------------------------------------------|
+| `npm run dev`     | Start the local dev server with hot reload    |
+| `npm run build`   | Build for production into `dist/` (also generates `sitemap.xml`) |
+| `npm run preview` | Serve the production build locally to check it |
 
-```bash
-npm run build
-```
+## Deployment
 
-Output goes to the `dist/` folder — upload its contents to any static host
-(Netlify, Vercel, GitHub Pages, cPanel, etc.).
+`npm run build` outputs a static site to `dist/`. Any static host works
+(Vercel, Netlify, cPanel, etc.).
 
-Because the app now uses real client-side routing (`/` and `/quote` via
-React Router) instead of `#/quote` hash routing, your host needs a rewrite
-rule so refreshing `/quote` doesn't 404. This repo already includes:
-- `public/_redirects` — for Netlify
-- `vercel.json` — for Vercel
+The site uses client-side routing, so the host must serve `index.html` for
+any unknown path (otherwise refreshing `/quote` gives a 404). This is already
+configured for:
 
-Other hosts need an equivalent "serve index.html for any unmatched route"
-rule.
+- **Vercel** — `vercel.json`
+- **Netlify** — `public/_redirects`
+
+### Redirects
+
+Both files also permanently (301) redirect the old construction URLs:
+
+| Old URL on kreedum.com | Goes to |
+|------------------------|---------|
+| `/construction`        | `https://construction.kreedum.com` |
+| `/construction/<path>` | `https://construction.kreedum.com/<path>` |
+
+## Links to the Construction site
+
+All construction links come from one file, **`src/config/externalLinks.js`**:
+
+| Link                   | URL |
+|------------------------|-----|
+| Home                   | https://construction.kreedum.com |
+| Sports Infrastructure  | https://construction.kreedum.com/sports-infrastructure |
+| Civil Construction     | https://construction.kreedum.com/civil-construction |
+| Prefabricated Buildings| https://construction.kreedum.com/prefabricated-buildings |
+
+If the construction site's addresses change, edit that file only. The
+navbar, footer and Infrastructure section update automatically.
 
 ## Project structure
 
 ```
 kreedum-sports/
-├── index.html
-├── package.json
-├── vite.config.js
+├── index.html                  # HTML shell, SEO meta tags, structured data
+├── vite.config.js              # Vite + sitemap plugin (list of site routes)
 ├── tailwind.config.js
 ├── postcss.config.js
-├── vercel.json                    # SPA rewrite rule for Vercel
-├── .env.example                   # copy to .env, fill in when the backend exists
-exists
+├── vercel.json                 # Vercel: SPA rewrite + construction redirects
+├── .env.example                # copy to .env when a backend exists
 ├── docs/
-│   └── STYLE_GUIDE.md              # all fonts & colors used, and where — 
-├── public/
-│   ├── favicon.png
-│   └── _redirects                 # SPA rewrite rule for Netlify
+│   └── STYLE_GUIDE.md          # every color and font used, and where
+├── public/                     # served as-is: favicons, og-image, robots.txt,
+│   └── _redirects              #   manifest; Netlify SPA rewrite + redirects
 └── src/
-    ├── main.jsx                   # React entry point
-    ├── App.jsx                    # Router setup (BrowserRouter + routes)
-    ├── index.css                  # Tailwind directives
+    ├── main.jsx                # React entry point
+    ├── App.jsx                 # routes
+    ├── index.css               # Tailwind directives
     ├── assets/
-    │   └── logo.jpg                # Kreedum logo (was an inline base64 string before)
-    ├── config/                    # Small, static site-wide values
-    │   ├── theme.js                # COLORS — brand color tokens
-    │   ├── contact.js               # phone numbers, WhatsApp number
-    │   └── navigation.js            # nav bar links
-    ├── data/                      # Content arrays shown by sections
-    │   ├── photos.js                # placeholder Unsplash photos
-    │   ├── products.js              # "What We Stock" categories
-    │   ├── locations.js             # store addresses/hours
-    │   ├── socialLinks.js           # footer social icons
-    │   └── quoteFormOptions.js      # dropdown options for both forms
+    │   └── logo.png
+    ├── config/                 # small site-wide values
+    │   ├── theme.js            # COLORS — brand color tokens
+    │   ├── contact.js          # phone and WhatsApp numbers
+    │   ├── navigation.js       # navbar links
+    │   └── externalLinks.js    # links to construction.kreedum.com
+    ├── data/                   # content shown by the sections
+    │   ├── photos.js
+    │   ├── products.js         # "What We Stock" categories
+    │   ├── locations.js        # store addresses and hours
+    │   ├── socialLinks.js
+    │   └── quoteFormOptions.js # dropdown options for the forms
     ├── hooks/
-    │   └── useScrolled.js          # true once the page is scrolled past a threshold
+    │   └── useScrolled.js      # true once the page is scrolled
     ├── utils/
-    │   ├── scrollToId.js           # smooth-scroll to a section by id
-    │   └── whatsapp.js             # build/open a wa.me link, phone validation
+    │   ├── scrollToId.js       # smooth-scroll to a section
+    │   └── whatsapp.js         # build/open wa.me links, phone validation
     ├── services/
-    │   └── api.js                  # fetch wrapper for the future backend (see below)
+    │   └── api.js              # fetch wrapper for a future backend
     ├── components/
-    │   ├── common/                 # shared, presentation-only pieces
-    │   │   ├── GlobalStyle.jsx      # fonts, clip-path utility classes, focus rules
-    │   │   ├── Icons.jsx            # small inline SVG icons used in 2+ places
-    │   │   └── SocialLinks.jsx
-    │   ├── layout/
-    │   │   ├── Nav.jsx              # sticky header (home page only)
-    │   │   └── Footer.jsx
-    │   └── sections/                # one file per landing-page section
-    │       ├── Hero.jsx
-    │       ├── StatsBar.jsx
-    │       ├── About.jsx
-    │       ├── Products.jsx
-    │       ├── Infrastructure.jsx
-    │       ├── Gallery.jsx
-    │       ├── Locations.jsx
-    │       └── ContactForm.jsx
-    └── pages/
-        ├── HomePage.jsx            # assembles Nav + all sections + Footer
-        └── QuotePage.jsx           # the /quote gym-equipment quote form
-        └── LinksPage.jsx           # the /Linkpage our linktreepage
+    │   ├── common/             # GlobalStyle, Icons, SocialLinks,
+    │   │                       #   WhatsAppButton, SubmitedAt
+    │   ├── layout/             # Nav, Footer
+    │   └── sections/           # one file per home-page section:
+    │                           #   Hero, StatsBar, About, Products,
+    │                           #   Infrastructure, Gallery, Locations,
+    │                           #   ContactForm
+    └── pages/                  # HomePage, QuotePage, LinksPage
 ```
 
-### Why this layout
+### How it's organised
 
-- **`config/` vs `data/`** — `config` holds small values that describe *the
-  site itself* (colors, phone numbers, nav links). `data` holds content
-  arrays that a section renders (product cards, store list, dropdown
-  options). If a backend later serves any of this, only the `data/*.js`
-  file it replaces needs to change — no component touches raw arrays.
-- **`components/sections/` vs `pages/`** — each section is a self-contained,
-  single-responsibility component. `pages/` just composes them. Adding a
-  new page (e.g. `/about` or `/careers`) means creating one file in `pages/`
-  and wiring a `<Route>` in `App.jsx` — existing sections are untouched.
-- **`services/api.js`** — nothing calls this yet. It exists so that wiring
-  up a backend later is additive, not another refactor.
+- **`config/` vs `data/`**: `config` holds values about the site itself
+  (colors, phone numbers, links). `data` holds the content a section
+  displays (products, stores, dropdown options). To change content, edit
+  the `data/` file; no component needs to change.
+- **`sections/` vs `pages/`**: each section is self-contained, and pages just
+  put sections together. To add a page, create a file in `pages/`, add a
+  `<Route>` in `App.jsx`, and add the path to the sitemap list in
+  `vite.config.js`.
 
+## Common edits
 
+| To change…                     | Edit |
+|--------------------------------|------|
+| Phone / WhatsApp number        | `src/config/contact.js` |
+| Navbar links                   | `src/config/navigation.js` |
+| Construction site links        | `src/config/externalLinks.js` |
+| Brand colors                   | `src/config/theme.js` (and update `docs/STYLE_GUIDE.md`) |
+| Products                       | `src/data/products.js` |
+| Store addresses / hours        | `src/data/locations.js` |
+| Photos                         | `src/data/photos.js` |
+| Social media links             | `src/data/socialLinks.js` |
+| Page title / SEO description   | `index.html` |
 
-### Style guide
+## Forms
 
-docs/STYLE_GUIDE.md documents every color and font currently used on the site — the brand tokens in COLORS, accent colors, overlay opacities, the type scale, and which Google Fonts weights are loaded. Check it before adding a new color or font, and keep it updated when you do.
+The contact form (home page) and the quote form (`/quote`) currently send
+the enquiry to WhatsApp (`src/utils/whatsapp.js`). Nothing is saved to a
+database yet.
 
 ## Connecting a backend later
 
-1. Stand up your API and note its base URL.
+1. Set up the API and note its base URL.
 2. Copy `.env.example` to `.env` and set `VITE_API_BASE_URL`.
-3. Call `api.get/post/put/del` from `src/services/api.js` wherever you need
-   data — for example, inside `ContactForm.jsx`'s `handleSubmit`, in
-   addition to (or instead of) the WhatsApp hand-off:
+3. Call the helpers in `src/services/api.js` where data is needed, for
+   example in `handleSubmit` in `ContactForm.jsx` or `QuotePage.jsx`:
 
    ```js
    import { api } from "../../services/api";
-   // ...
+
    await api.post("/contact", form);
    ```
 
-4. If you add more resources (products, orders, auth), it's usually
-   cleanest to give each its own file in `src/services/` (e.g.
-   `products.js`, `quotes.js`) that wraps `api` with resource-specific
-   functions, rather than growing `api.js` itself.
+4. For more resources (products, orders, etc.), add one file per resource
+   in `src/services/` that wraps `api`, rather than growing `api.js`.
 
-## Notes / things to finish
+## To do
 
-- **Second store location**: `src/data/locations.js` has placeholder text
-  for the second store's address — search for "to confirm" and fill in the
-  real details.
-- **Contact & Quote forms**: both currently hand off to WhatsApp
-  (`src/utils/whatsapp.js`). To also save submissions to a database or send
-  email, call `api.post(...)` from `handleSubmit` in `ContactForm.jsx` /
-  `QuotePage.jsx` once the backend exists (see above).
-- **Photos**: `src/data/photos.js` uses free Unsplash stock photos as
-  placeholders. Swap in real photos of the stores/products by replacing the
-  URLs there — no component needs to change.
-  Updated this just checking for repo transfer
+- **Second store**: `src/data/locations.js` still has placeholder text for
+  the second store; search for "to confirm" and fill in the real details.
+- **Photos**: `src/data/photos.js` uses Unsplash stock photos as
+  placeholders; replace the URLs with real store and product photos.
+- **Form submissions**: save enquiries to a database or send email once a
+  backend exists (see above).
+
+## Style guide
+
+See [`docs/STYLE_GUIDE.md`](docs/STYLE_GUIDE.md) for all colors and fonts.
+Check it before adding a new color or font, and update it when you do.
