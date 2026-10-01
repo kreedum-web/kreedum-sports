@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../config/theme";
 import { NAV_LINKS } from "../../config/navigation";
@@ -13,14 +14,22 @@ import { PhoneIcon } from "../common/Icons";
 import logo from "../../assets/logo.png";
 
 export default function Nav() {
+  const location = useLocation();
   const scrolled = useScrolled();
   const [open, setOpen] = useState(false);
   const mobileMenuRef = useRef(null);
 
   const scrollTo = (id) => {
-    setOpen(false);
-    scrollToId(id);
-  };
+  setOpen(false);
+
+  // Home should always return to the homepage.
+  if (id === "home" && location.pathname !== "/") {
+    window.location.href = "/";
+    return;
+  }
+
+  scrollToId(id);
+};
 
 
   useEffect(() => {
@@ -117,8 +126,8 @@ export default function Nav() {
         >
           {/* ================= LOGO ================= */}
 
-          <button
-            onClick={() => scrollTo("home")}
+          <Link
+            to="/"
             className="
               flex
               items-center
@@ -151,7 +160,7 @@ export default function Nav() {
                 Sports
               </span>
             </span>
-          </button>
+          </Link>
 
           {/* =====================================================
               DESKTOP NAVIGATION
