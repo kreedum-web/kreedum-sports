@@ -8,9 +8,9 @@ export default defineConfig({
     sitemap({
       hostname: "https://www.kreedum.com",
       dynamicRoutes: [
-        "/",
         "/quote",
         "/links",
+        "/gym-equipment-in-lucknow",
       ],
     }),
   ],
