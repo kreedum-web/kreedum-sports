@@ -11,6 +11,9 @@ export default defineConfig({
         "/quote",
         "/links",
         "/gym-equipment-in-lucknow",
+        "/gym-setup-in-lucknow",
+        "/gym-packages",
+
       ],
     }),
   ],
