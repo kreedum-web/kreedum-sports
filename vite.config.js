@@ -13,6 +13,8 @@ export default defineConfig({
         "/gym-equipment-in-lucknow",
         "/gym-setup-in-lucknow",
         "/gym-packages",
+        "/gym-packages/10-lakh-gym-package",
+"/gym-packages/17-5-lakh-gym-package",
 
       ],
     }),

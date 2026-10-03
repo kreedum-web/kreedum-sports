@@ -8,6 +8,7 @@ import HashScrollHandler from "./components/common/HashScrollHandler";
 import GymSetupPage from "./pages/GymSetupPage";
 import GymPackagesPage from "./pages/GymPackagesPage";
 import GymPackageDetailPage from "./pages/GymPackageDetailPage";
+import GymPackage175Page from "./pages/GymPackage175Page";
 export default function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,10 @@ export default function App() {
         <Route
   path="/gym-packages/10-lakh-gym-package"
   element={<GymPackageDetailPage />}
+/>
+<Route
+  path="/gym-packages/17-5-lakh-gym-package"
+  element={<GymPackage175Page />}
 />
       </Routes>
     </BrowserRouter>
