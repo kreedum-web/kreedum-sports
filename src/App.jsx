@@ -26,23 +26,11 @@ export default function App() {
         <Route path="/gym-setup-in-lucknow" element={<GymSetupPage />}/>
         <Route path="/gym-packages" element={<GymPackagesPage />}/>
         <Route path="/about-us" element={<AboutUsPage />} />
-<Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-<Route
-  path="/terms-and-conditions"
-  element={<TermsAndConditionsPage />}
-/>
-        <Route
-  path="/gym-packages/10-lakh-gym-package"
-  element={<GymPackageDetailPage />}
-/>
-<Route
-  path="/gym-packages/17-5-lakh-gym-package"
-  element={<GymPackage175Page />}
-/>
-<Route
-  path="/gym-packages/26-5-lakh-gym-package"
-  element={<GymPackage265Page />}
-/>
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />}/>
+        <Route path="/gym-packages/10-lakh-gym-package" element={<GymPackageDetailPage />}/>
+        <Route path="/gym-packages/17-5-lakh-gym-package" element={<GymPackage175Page />}/>
+        <Route path="/gym-packages/26-5-lakh-gym-package" element={<GymPackage265Page />}/>
       </Routes>
     </BrowserRouter>
   );

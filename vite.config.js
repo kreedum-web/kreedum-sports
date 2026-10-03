@@ -7,17 +7,19 @@ export default defineConfig({
     react(),
     sitemap({
       hostname: "https://www.kreedum.com",
-      dynamicRoutes: [
-        "/quote",
-        "/links",
-        "/gym-equipment-in-lucknow",
-        "/gym-setup-in-lucknow",
-        "/gym-packages",
-        "/gym-packages/10-lakh-gym-package",
-"/gym-packages/17-5-lakh-gym-package",
-"/gym-packages/26-5-lakh-gym-package",
-
-      ],
+     dynamicRoutes: [
+            "/quote",
+            "/links",
+            "/about-us",
+            "/privacy-policy",
+            "/terms-and-conditions",
+            "/gym-equipment-in-lucknow",
+            "/gym-setup-in-lucknow",
+            "/gym-packages",
+            "/gym-packages/10-lakh-gym-package",
+            "/gym-packages/17-5-lakh-gym-package",
+            "/gym-packages/26-5-lakh-gym-package",
+          ],
     }),
   ],
 });
