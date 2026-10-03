@@ -10,6 +10,9 @@ import GymPackagesPage from "./pages/GymPackagesPage";
 import GymPackageDetailPage from "./pages/GymPackageDetailPage";
 import GymPackage175Page from "./pages/GymPackage175Page";
 import GymPackage265Page from "./pages/GymPackage265Page";
+import AboutUsPage from "./pages/AboutUsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 export default function App() {
   return (
     <BrowserRouter>
@@ -22,6 +25,12 @@ export default function App() {
         <Route path="/gym-equipment-in-lucknow" element={<GymEquipmentPage />}/>
         <Route path="/gym-setup-in-lucknow" element={<GymSetupPage />}/>
         <Route path="/gym-packages" element={<GymPackagesPage />}/>
+        <Route path="/about-us" element={<AboutUsPage />} />
+<Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+<Route
+  path="/terms-and-conditions"
+  element={<TermsAndConditionsPage />}
+/>
         <Route
   path="/gym-packages/10-lakh-gym-package"
   element={<GymPackageDetailPage />}

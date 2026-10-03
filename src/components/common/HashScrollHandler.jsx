@@ -5,26 +5,31 @@ export default function HashScrollHandler() {
   const location = useLocation();
 
   useEffect(() => {
-    if (!location.hash) return;
+    // If the URL contains a hash, scroll to that section.
+    if (location.hash) {
+      const id = decodeURIComponent(location.hash.substring(1));
 
-    const id = decodeURIComponent(
-      location.hash.substring(1)
-    );
+      const timer = setTimeout(() => {
+        const element = document.getElementById(id);
 
-    // Wait for the destination page to render.
-    const timer = setTimeout(() => {
-      const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 100);
 
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }, 100);
+      return () => clearTimeout(timer);
+    }
 
-    return () => clearTimeout(timer);
-  }, [location]);
+    // For normal page navigation, always start at the top.
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, [location.pathname, location.hash]);
 
   return null;
 }

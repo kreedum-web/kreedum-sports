@@ -8,7 +8,13 @@ import logo from "../../assets/logo.png";
 
 const QUICK_LINKS = [
   { label: "Home", to: "/" },
-  ...NAV_LINKS.map((l) => ({ label: l.label, to: `/#${l.id}` })),
+  { label: "About Us", to: "/about-us" },
+
+  ...NAV_LINKS.map((l) => ({
+    label: l.label,
+    to: l.type === "route" ? l.path : `/#${l.id}`,
+  })),
+
   { label: "Get a Gym Quote", to: "/quote" },
 ];
 
@@ -157,19 +163,22 @@ export default function Footer() {
             Limited
           </p>
           <div className="flex items-center gap-5">
-            <span
-              className="font-mono text-xs tracking-widest uppercase"
-              style={{ color: "rgba(255,255,255,0.3)" }}
-            >
-              Privacy Policy
-            </span>
-            <span
-              className="font-mono text-xs tracking-widest uppercase"
-              style={{ color: "rgba(255,255,255,0.3)" }}
-            >
-              Terms &amp; Conditions
-            </span>
-          </div>
+  <Link
+    to="/privacy-policy"
+    className="font-mono text-xs tracking-widest uppercase transition-colors hover:text-white"
+    style={{ color: "rgba(255,255,255,0.3)" }}
+  >
+    Privacy Policy
+  </Link>
+
+  <Link
+    to="/terms-and-conditions"
+    className="font-mono text-xs tracking-widest uppercase transition-colors hover:text-white"
+    style={{ color: "rgba(255,255,255,0.3)" }}
+  >
+    Terms &amp; Conditions
+  </Link>
+</div>
         </div>
       </div>
     </footer>
