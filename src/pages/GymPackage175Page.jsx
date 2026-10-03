@@ -206,8 +206,8 @@ export default function GymPackageDetailPage() {
       }}
     >
       <SEO
-        title="₹10 Lakh Gym Package | Gym Setup in Lucknow | Kreedum Sports"
-        description="Explore the ₹10 lakh gym package from Kreedum Sports featuring cardio and strength equipment for a complete gym setup in Lucknow."
+        title="₹17.5 Lakh Gym Package | Gym Setup in Lucknow | Kreedum Sports"
+        description="Explore the ₹17.5 lakh gym package from Kreedum Sports featuring cardio and strength equipment for a complete gym setup in Lucknow."
         canonical={`https://www.kreedum.com/gym-packages/${PACKAGE.slug}`}
       />
 
