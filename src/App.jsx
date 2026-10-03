@@ -9,6 +9,7 @@ import GymSetupPage from "./pages/GymSetupPage";
 import GymPackagesPage from "./pages/GymPackagesPage";
 import GymPackageDetailPage from "./pages/GymPackageDetailPage";
 import GymPackage175Page from "./pages/GymPackage175Page";
+import GymPackage265Page from "./pages/GymPackage265Page";
 export default function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,10 @@ export default function App() {
 <Route
   path="/gym-packages/17-5-lakh-gym-package"
   element={<GymPackage175Page />}
+/>
+<Route
+  path="/gym-packages/26-5-lakh-gym-package"
+  element={<GymPackage265Page />}
 />
       </Routes>
     </BrowserRouter>
