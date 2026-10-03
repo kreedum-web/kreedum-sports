@@ -2,5 +2,6 @@
 export const NAV_LINKS = [
   { id: "products", label: "Products" },
   { id: "locations", label: "Locations" },
+  { type: "route", path: "/gym-packages", label: "Gym Packages" },
   // { id: "contact", label: "Contact" },
 ];
