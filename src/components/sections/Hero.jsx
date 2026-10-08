@@ -107,10 +107,13 @@ export default function Hero() {
           >
             Lucknow · Since 1990
           </div>
-          <h1 className="font-display font-bold text-4xl md:text-6xl leading-[1.05] mb-6" style={{ color: COLORS.white }}>
-            Equipment for
+          <h1
+              className="font-display font-bold text-4xl md:text-6xl leading-[1.05] mb-6"
+              style={{ color: COLORS.white }}
+            >
+              Sports Equipment &
             <br />
-            <span style={{ color: "#8FADFF" }}>every kind of play.</span>
+            <span style={{ color: "#8FADFF" }}>Sports Infrastructure</span>
           </h1>
           <p className="font-body text-base md:text-lg mb-9 max-w-md" style={{ color: "rgba(255,255,255,0.75)" }}>
             Sports equipment, apparell, footwear, fitness machines, and full
