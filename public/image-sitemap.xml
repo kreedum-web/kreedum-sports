@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://www.kreedum.com/</loc>
+    <image:image>
+      <image:loc>https://www.kreedum.com/kreedum-international-logo.png</image:loc>
+      <image:title>Kreedum International Private Limited Logo</image:title>
+      <image:caption>Kreedum International Private Limited</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
