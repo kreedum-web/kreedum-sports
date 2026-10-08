@@ -11,7 +11,7 @@ import {
 import { useScrolled } from "../../hooks/useScrolled";
 import { scrollToId } from "../../utils/scrollToId";
 import { PhoneIcon } from "../common/Icons";
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 
 export default function Nav() {
   const location = useLocation();
@@ -135,9 +135,11 @@ export default function Nav() {
               kr-focus
             "
           >
+
+
             <img
-              src={logo}
-              alt="Kreedum logo"
+              src="/kreedum-international-logo.png"
+              alt="Kreedum International Private Limited logo"
               className="w-8 h-8 md:w-9 md:h-9"
             />
 
