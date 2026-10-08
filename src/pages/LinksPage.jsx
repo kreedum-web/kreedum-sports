@@ -662,7 +662,7 @@ export default function LinksPage() {
 
           <img
             src={logo}
-            alt=""
+            alt="Kreedum International Private Limited logo"
             className="links-footer-logo"
           />
 
