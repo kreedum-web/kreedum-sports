@@ -13,6 +13,8 @@ import GymPackage265Page from "./pages/GymPackage265Page";
 import AboutUsPage from "./pages/AboutUsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+import GovernmentSportsEquipmentSupplierPage from "./pages/GovernmentSportsEquipmentSupplierPage";
+import SportsEquipmentWholesalePage from "./pages/SportsEquipmentWholesalePage";
 export default function App() {
   return (
     <BrowserRouter>
@@ -24,6 +26,8 @@ export default function App() {
         <Route path="/links" element={<LinksPage />} />
         <Route path="/gym-equipment-in-lucknow" element={<GymEquipmentPage />}/>
         <Route path="/gym-setup-in-lucknow" element={<GymSetupPage />}/>
+        <Route path="/sports-equipment-wholesale" element={<SportsEquipmentWholesalePage />}/>
+        <Route path="/government-sports-equipment-supplier" element={<GovernmentSportsEquipmentSupplierPage />}/>
         <Route path="/gym-packages" element={<GymPackagesPage />}/>
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

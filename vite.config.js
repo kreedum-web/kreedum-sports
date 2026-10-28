@@ -14,6 +14,8 @@ export default defineConfig({
             "/privacy-policy",
             "/terms-and-conditions",
             "/gym-equipment-in-lucknow",
+            "/government-sports-equipment-supplier",
+            "/sports-equipment-wholesale",
             "/gym-setup-in-lucknow",
             "/gym-packages",
             "/gym-packages/10-lakh-gym-package",
