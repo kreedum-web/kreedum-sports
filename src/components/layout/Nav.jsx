@@ -171,16 +171,30 @@ export default function Nav() {
           ====================================================== */}
 
           <nav className="hidden md:flex items-center gap-8">
+
 {NAV_LINKS.map((l) =>
-  l.type === "route" ? (
+  l.type === "external" ? (
+    <a
+      key={l.href}
+      href={l.href}
+      className="
+        font-body text-sm font-medium kr-focus
+        transition-colors
+      "
+      style={{
+        color: scrolled
+          ? COLORS.slate
+          : "rgba(255,255,255,0.9)",
+      }}
+    >
+      {l.label}
+    </a>
+  ) : l.type === "route" ? (
     <Link
       key={l.path}
       to={l.path}
       className="
-        font-body
-        text-sm
-        font-medium
-        kr-focus
+        font-body text-sm font-medium kr-focus
         transition-colors
       "
       style={{
@@ -196,10 +210,7 @@ export default function Nav() {
       key={l.id}
       onClick={() => scrollTo(l.id)}
       className="
-        font-body
-        text-sm
-        font-medium
-        kr-focus
+        font-body text-sm font-medium kr-focus
         transition-colors
       "
       style={{
@@ -212,6 +223,7 @@ export default function Nav() {
     </button>
   )
 )}
+
 
             {/* Construction — separate site (construction.kreedum.com) */}
 
@@ -407,47 +419,49 @@ export default function Nav() {
             {/* ================= NAVIGATION LINKS ================= */}
 
             <div className="px-3 pt-3 pb-2">
-              {NAV_LINKS.map((l, index) =>
-  l.type === "route" ? (
+
+{NAV_LINKS.map((l, index) =>
+  l.type === "external" ? (
+    <a
+      key={l.href}
+      href={l.href}
+      onClick={() => setOpen(false)}
+      className="
+        mobile-nav-item
+        w-full flex items-center justify-between
+        text-left px-4 py-3.5 rounded-2xl
+        kr-focus transition-all duration-200
+      "
+      style={{
+        color: COLORS.navy,
+        opacity: open ? 1 : 0,
+        transform: open ? "translateY(0)" : "translateY(-8px)",
+        transitionDelay: open ? `${index * 45}ms` : "0ms",
+      }}
+    >
+      <span className="mobile-nav-label">{l.label}</span>
+      <span className="mobile-nav-arrow" aria-hidden="true">↗</span>
+    </a>
+  ) : l.type === "route" ? (
     <Link
       key={l.path}
       to={l.path}
       onClick={() => setOpen(false)}
       className="
         mobile-nav-item
-        w-full
-        flex
-        items-center
-        justify-between
-        text-left
-        px-4
-        py-3.5
-        rounded-2xl
-        kr-focus
-        transition-all
-        duration-200
+        w-full flex items-center justify-between
+        text-left px-4 py-3.5 rounded-2xl
+        kr-focus transition-all duration-200
       "
       style={{
         color: COLORS.navy,
         opacity: open ? 1 : 0,
-        transform: open
-          ? "translateY(0)"
-          : "translateY(-8px)",
-        transitionDelay: open
-          ? `${index * 45}ms`
-          : "0ms",
+        transform: open ? "translateY(0)" : "translateY(-8px)",
+        transitionDelay: open ? `${index * 45}ms` : "0ms",
       }}
     >
-      <span className="mobile-nav-label">
-        {l.label}
-      </span>
-
-      <span
-        className="mobile-nav-arrow"
-        aria-hidden="true"
-      >
-        →
-      </span>
+      <span className="mobile-nav-label">{l.label}</span>
+      <span className="mobile-nav-arrow" aria-hidden="true">→</span>
     </Link>
   ) : (
     <button
@@ -455,42 +469,23 @@ export default function Nav() {
       onClick={() => scrollTo(l.id)}
       className="
         mobile-nav-item
-        w-full
-        flex
-        items-center
-        justify-between
-        text-left
-        px-4
-        py-3.5
-        rounded-2xl
-        kr-focus
-        transition-all
-        duration-200
+        w-full flex items-center justify-between
+        text-left px-4 py-3.5 rounded-2xl
+        kr-focus transition-all duration-200
       "
       style={{
         color: COLORS.navy,
         opacity: open ? 1 : 0,
-        transform: open
-          ? "translateY(0)"
-          : "translateY(-8px)",
-        transitionDelay: open
-          ? `${index * 45}ms`
-          : "0ms",
+        transform: open ? "translateY(0)" : "translateY(-8px)",
+        transitionDelay: open ? `${index * 45}ms` : "0ms",
       }}
     >
-      <span className="mobile-nav-label">
-        {l.label}
-      </span>
-
-      <span
-        className="mobile-nav-arrow"
-        aria-hidden="true"
-      >
-        →
-      </span>
+      <span className="mobile-nav-label">{l.label}</span>
+      <span className="mobile-nav-arrow" aria-hidden="true">→</span>
     </button>
   )
 )}
+
 
               {/* Construction — separate site (construction.kreedum.com) */}
 

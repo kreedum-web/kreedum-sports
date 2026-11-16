@@ -17,11 +17,13 @@ export default function Products() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
           {PRODUCT_CATEGORIES.map((item, i) => (
-            <div
-              key={item.title}
-              className="relative group overflow-hidden rounded-2xl h-40 sm:h-48 md:h-60 flex flex-col justify-end p-6 md:p-8 transition-transform active:scale-[0.98] sm:hover:-translate-y-1"
-              style={{ boxShadow: "0 1px 3px rgba(14,26,61,0.06)" }}
-            >
+           <a
+    key={item.title}
+    href={item.url}
+    aria-label={`Explore ${item.title} at Kreedum Shop`}
+    className="relative group overflow-hidden rounded-2xl h-40 sm:h-48 md:h-60 flex flex-col justify-end p-6 md:p-8 transition-transform active:scale-[0.98] sm:hover:-translate-y-1"
+    style={{ boxShadow: "0 1px 3px rgba(14,26,61,0.06)" }}
+  >
               {/* Background image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
@@ -49,8 +51,8 @@ export default function Products() {
                   {item.desc}
                 </p>
               </div>
-            </div>
-          ))}
+           </a>
+))}
         </div>
       </div>
     </section>

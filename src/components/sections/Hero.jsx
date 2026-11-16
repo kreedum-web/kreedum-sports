@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { COLORS } from "../../config/theme";
 import { HERO_SLIDES } from "../../data/photos";
-import { scrollToId } from "../../utils/scrollToId";
+// import { scrollToId } from "../../utils/scrollToId";
 
 // How long each background photo stays on screen.
 const SLIDE_INTERVAL_MS = 5000;
@@ -24,7 +24,7 @@ const srcSetFor = (url) =>
   [800, 1280, 1920].map((w) => `${sized(url, w)} ${w}w`).join(", ");
 
 export default function Hero() {
-  const scrollTo = (id) => scrollToId(id);
+  // const scrollTo = (id) => scrollToId(id);
   const [slide, setSlide] = useState(0);
 
   // Auto-advance the background slideshow. Stops for visitors who
@@ -128,13 +128,18 @@ export default function Hero() {
             >
               Request a Quote
             </Link>
-            <button
-              onClick={() => scrollTo("products")}
-              className="font-body font-semibold text-sm px-7 py-3.5 rounded-full kr-focus border transition-transform hover:scale-105"
-              style={{ borderColor: "rgba(255,255,255,0.3)", color: COLORS.white }}
-            >
-              View Products
-            </button>
+            
+<a
+  href="https://shop.kreedum.com/"
+  className="font-body font-semibold text-sm px-7 py-3.5 rounded-full kr-focus border transition-transform hover:scale-105 inline-block"
+  style={{
+    borderColor: "rgba(255,255,255,0.3)",
+    color: COLORS.white,
+  }}
+>
+  View Products
+</a>
+
           </div>
 
           {/* Slideshow dots */}

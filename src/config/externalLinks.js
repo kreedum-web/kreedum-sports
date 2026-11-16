@@ -3,6 +3,7 @@
  * this (Sports) site points there — change the URLs here if its paths differ.
  */
 export const CONSTRUCTION_SITE_URL = "https://construction.kreedum.com";
+export const ECOMMERCE_SITE_URL = "https://shop.kreedum.com";
 
 export const CONSTRUCTION_LINKS = {
   home: CONSTRUCTION_SITE_URL,
