@@ -4,7 +4,7 @@ export const NAV_LINKS = [
   {
     type: "external",
     href: "https://shop.kreedum.com/",
-    label: "Products",
+    label: "Shop Online",
   },
   { id: "locations", label: "Locations" },
   {

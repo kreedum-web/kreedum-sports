@@ -137,7 +137,7 @@ export default function Hero() {
     color: COLORS.white,
   }}
 >
-  View Products
+  Shop Online
 </a>
 
           </div>

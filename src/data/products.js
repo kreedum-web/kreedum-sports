@@ -4,7 +4,7 @@ export const PRODUCT_CATEGORIES = [
     title: "Sports Equipment",
     desc: "Cricket, football, badminton, and gear across every major sport.",
     img: "https://images.unsplash.com/photo-1562771242-a02d9090c90c",
-    url: "https://shop.kreedum.com/cardio",
+    url: "https://shop.kreedum.com/categories/cardio",
   },
   {
     title: "Apparel & Footwear",
